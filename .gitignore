@@ -1,0 +1,4 @@
+.env
+.idea
+/packer_vagrant_virtualbox.box
+/playbook.retry

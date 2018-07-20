@@ -1,0 +1,36 @@
+[submodule "roles/ansible-role-ansistrano-amazon-linux"]
+	path = roles/ansible-role-ansistrano-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-ansistrano-amazon-linux.git
+[submodule "roles/ansible-role-apache2.2-amazon-linux"]
+	path = roles/ansible-role-apache2.2-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-apache2.2-amazon-linux.git
+[submodule "roles/ansible-role-cleaning-amazon-linux"]
+	path = roles/ansible-role-cleaning-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-cleaning-amazon-linux.git
+[submodule "roles/ansible-role-host-name-and-ssl-amazon-linux"]
+	path = roles/ansible-role-host-name-and-ssl-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-host-name-and-ssl-amazon-linux.git
+[submodule "roles/ansible-role-mysql5.1-amazon-linux"]
+	path = roles/ansible-role-mysql5.1-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-mysql5.1-amazon-linux.git
+[submodule "roles/ansible-role-php7.0-amazon-linux"]
+	path = roles/ansible-role-php7.0-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-php7.0-amazon-linux.git
+[submodule "roles/ansible-role-redis-amazon-linux"]
+	path = roles/ansible-role-redis-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-redis-amazon-linux.git
+[submodule "roles/ansible-role-samba-amazon-linux"]
+	path = roles/ansible-role-samba-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-samba-amazon-linux.git
+[submodule "roles/ansible-role-simulate-amazon-linux-centos"]
+	path = roles/ansible-role-simulate-amazon-linux-centos
+	url = git@github.com:yukihiko-shinoda/ansible-role-simulate-amazon-linux-centos.git
+[submodule "roles/ansible-role-ssh-config-amazon-linux"]
+	path = roles/ansible-role-ssh-config-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-ssh-config-amazon-linux.git
+[submodule "roles/ansible-role-heroku-cli-amazon-linux"]
+	path = roles/ansible-role-heroku-cli-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-heroku-cli-amazon-linux.git
+[submodule "roles/ansible-role-symfony3-amazon-linux"]
+	path = roles/ansible-role-symfony3-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-symfony3-amazon-linux.git

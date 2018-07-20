@@ -1,0 +1,8 @@
+---
+roles_common_domain_name: futureys.net
+mysql_5_1_user_name: app
+mysql_5_1_database_name: service
+ssh_config_git_deploy_key_s3_bucket_name: bucket-yukhikfuture-yukhikfuture-deploy-key
+ssh_config_git_deploy_key_names:
+  - id_rsa_deploy_key_github_yuk_hik_future_ansistrano_symfony3
+  - id_rsa_deploy_key_github_yuk_hik_future_application_symfony3

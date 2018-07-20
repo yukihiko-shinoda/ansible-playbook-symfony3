@@ -1,0 +1,18 @@
+---
+- hosts: default
+  become: yes
+  roles:
+    - role: ansible-role-simulate-amazon-linux-centos
+      when: ansible_distribution != 'Amazon'
+    - role: ansible-role-apache2.2-amazon-linux
+    - role: ansible-role-php7.0-amazon-linux
+    - role: ansible-role-mysql5.1-amazon-linux
+    - role: ansible-role-redis-amazon-linux
+    - role: ansible-role-symfony3-amazon-linux
+    - role: ansible-role-ssh-config-amazon-linux
+    - role: ansible-role-ansistrano-amazon-linux
+    - role: ansible-role-samba-amazon-linux
+      when: "'box' in group_names"
+    - role: ansible-role-cleaning-amazon-linux
+      tags:
+        - cleaning

@@ -1,0 +1,51 @@
+{
+  "variables": {
+    "cloud_token": null,
+    "aws_access_key_id": null,
+    "aws_secret_access_key": null,
+    "mysql_5_1_root_password": null,
+    "mysql_5_1_user_password": null,
+    "samba_user_password": null
+  },
+  "builders": [
+    {
+      "type": "vagrant",
+      "box_name": "futureys/centos-6",
+      "box_provider": "virtualbox",
+      "box_file": ".ovf",
+      "builder": {
+        "type": "virtualbox-ovf",
+        "headless": true,
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_pty": true,
+        "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbook_dummy.yml",
+      "playbook_dir": "./",
+      "staging_directory": "/tmp/packer-provisioner-ansible-local"
+    },{
+      "type": "shell",
+      "inline": [
+        "cd /tmp/packer-provisioner-ansible-local; ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook playbook.yml -vvv -c local -i inventories/box --extra-vars '{ \"aws_access_key_id\": \"{{user `aws_access_key_id`}}\", \"aws_secret_access_key\": \"{{user `aws_secret_access_key`}}\", \"mysql_5_1_root_password\": \"{{user `mysql_5_1_root_password`}}\", \"mysql_5_1_user_password\": \"{{user `mysql_5_1_user_password`}}\", \"samba_user_password\": \"{{user `samba_user_password`}}\" }'",
+        "sudo rm -rf /tmp/*"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": 8
+    },{
+      "type": "vagrant-cloud",
+      "box_tag": "futureys/centos-6-symfony-3",
+      "access_token": "{{user `cloud_token`}}",
+      "version": "201807.18.0"
+    }
+  ]
+}

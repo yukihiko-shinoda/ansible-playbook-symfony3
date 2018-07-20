@@ -1,0 +1,1 @@
+net use Z: \\172.28.128.3\workspace /user:vagrant vagrant
