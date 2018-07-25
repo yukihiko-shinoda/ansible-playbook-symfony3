@@ -34,3 +34,6 @@
 [submodule "roles/ansible-role-symfony3-amazon-linux"]
 	path = roles/ansible-role-symfony3-amazon-linux
 	url = git@github.com:yukihiko-shinoda/ansible-role-symfony3-amazon-linux.git
+[submodule "roles/ansible-role-git-amazon-linux"]
+	path = roles/ansible-role-git-amazon-linux
+	url = git@github.com:yukihiko-shinoda/ansible-role-git-amazon-linux.git

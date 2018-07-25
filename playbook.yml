@@ -3,14 +3,18 @@
   become: yes
   roles:
     - role: ansible-role-simulate-amazon-linux-centos
-      when: ansible_distribution != 'Amazon'
+      when: ansible_distribution != 'Amazon' or 'container' in group_names
     - role: ansible-role-apache2.2-amazon-linux
     - role: ansible-role-php7.0-amazon-linux
     - role: ansible-role-mysql5.1-amazon-linux
+      when: not 'container' in group_names
     - role: ansible-role-redis-amazon-linux
+      when: not 'container' in group_names
     - role: ansible-role-symfony3-amazon-linux
     - role: ansible-role-ssh-config-amazon-linux
     - role: ansible-role-ansistrano-amazon-linux
+    # ↓ dependency for ansistrano-symfony3
+    - role: ansible-role-git-amazon-linux
     - role: ansible-role-samba-amazon-linux
       when: "'box' in group_names"
     - role: ansible-role-cleaning-amazon-linux

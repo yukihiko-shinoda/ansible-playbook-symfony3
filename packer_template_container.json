@@ -1,0 +1,48 @@
+{
+  "variables": {
+    "aws_access_key_id": null,
+    "aws_secret_access_key": null,
+    "login_password": null
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "futureys/amazonlinux:1.201807.22",
+      "commit": true,
+      "changes": [
+        "EXPOSE 80 443",
+        "ENTRYPOINT [\"/usr/sbin/httpd\"]",
+        "CMD [\"-D\", \"FOREGROUND\"]"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbook_dummy.yml",
+      "playbook_dir": "./",
+      "staging_directory": "/tmp/packer-provisioner-ansible-local"
+    },{
+      "type": "shell",
+      "inline": [
+        "cd /tmp/packer-provisioner-ansible-local; ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook playbook.yml -vvv -c local -i inventories/container --extra-vars '{ \"aws_access_key_id\": \"{{user `aws_access_key_id`}}\", \"aws_secret_access_key\": \"{{user `aws_secret_access_key`}}\" }'",
+        "rm -rf /tmp/*"
+      ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "futureys/symfony3",
+        "tag": "1.201807.23"
+      },
+      {
+        "type": "docker-push",
+        "login": true,
+        "login_username": "futureys",
+        "login_password": "{{user `login_password`}}"
+      }
+    ]
+  ]
+}

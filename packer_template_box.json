@@ -19,7 +19,8 @@
         "ssh_username": "vagrant",
         "ssh_password": "vagrant",
         "ssh_pty": true,
-        "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'"
+        "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
+        "guest_additions_mode": "disable"
       }
     }
   ],
